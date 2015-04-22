@@ -54,12 +54,13 @@
 					<h2>内容介绍</h2>
 					<br>
 					<p>
-						主要内容包括CSS的块行级元素、浮动定位布局等
-						<br>以及Javascript基本概念、数据类型、引用类型、作用域、函数等...
+						CSS的块/行级元素、浮动定位布局..
+						<br>JS基本概念、数据类型、引用类型、作用域、函数..
 					</p>
 					<br>
 					<p>
-						相关读书笔记保存在个人为知笔记上并且采纳了伟庆哥的建议，恢复了之前的习惯开始同步发布文章在个人网站内。
+						相关读书笔记保存在个人为知笔记上</p>
+						<p>并且采纳了伟庆哥的建议发布总结的笔记在个人网站。
 					</p>
 				</section>
 				
@@ -186,16 +187,77 @@ a:link{border:5px solid blue;}
 						<pre><code data-trim contenteditable>
 "1.23"==1.23   0==false   null==undefined   new Object()==new Object() 
 						</code></pre>
-						<p>===类型不同返回false,类型相同进行比较
+						<p>===类型不同返回false,类型相同进行比较</p>
 						<pre><code data-trim contenteditable>
 null===null    undefined===undefined  NaN≠NaN  new Object()≠new Object()
 						</code></pre>						
 					</section>
 					<section>
 						<h2>类型检测</h2>
-						<p class="fragment" style="margin-left:100px;">typeof&nbsp;&nbsp;<span class="fragment">instanceof&nbsp;&nbsp;</span><span class="fragment">Object.prototype.toString&nbsp;&nbsp;</span>
+						<p class="fragment" style="margin-left:100px;">typeof&nbsp;&nbsp;<span class="fragment">instanceof&nbsp;&nbsp;</span><span class="fragment">Object.prototype.toString&nbsp;&nbsp;</span></p>
+						<pre class="fragment"><code data-trim contenteditable>
+typeof 100     	      "number"
+typeof true           "boolean"
+typeof function       "function" 
+typeof(undefined)     "undefined"
+typeof new Object()   "object"
+typeof [1,2]          "object"
+typeof NaN            "number"
+typeof null           "object"不是null (返回字段的兼容历史问题）
+						</code></pre>
+					</section>
+					<section>
+						<p class="fragment">obj instanceof Object</p>
+						<p class="fragment">判断左操作数的对象的原型链上是否有右构造函数的prototype属性</p>
+						<pre class="fragment"><code data-trim contenteditable>
+function Person(){}
+function Student(){}
+Student.prototype=new Person()
+Student.prototype.constructor=Student
+var bosn=new Student()
+bosn instanceof Student    //true
+var one =new Person()
+one instanceof Person      //true
+one instanceof Student     //false
+bosn instanceof Persons    //true
+						</code></pre>
+					</section>
+					<section>
+						<p class="fragment">object.prototype.toString.apply([]);==="[object Array]";</p>
+						<pre class="fragment"><code data-trim contenteditable>
+object.prototype.toString.apply([])===object Array
+object.prototype.toString.apply(function(){})===object Function
+object.prototype.toString.apply(null)===object Null
+object.prototype.toString.apply(undefined)===object Undefined
+						</code></pre>
 					</section>
 				</section>
+		
+				<section>
+					<section>
+						<h2>闭包</h2>
+					</section>
+					<section>
+						<h2>经典例子</h2>
+						<pre><code data-trim contenteditable>
+<script type="text/javascript">
+function init() {   
+    var pAry = document.getElementsByTagName("p");   
+    for( var i=0; i<pAry.length; i++ ) {   
+         pAry[i].onclick = function() {   
+         alert(i);   
+    }
+  }
+}
+</script>
+						</code></pre>
+					</section>
+					<section>
+
+					</section>
+				</section>
+				
+
 				<section style="text-align: left;">
 					<h1>THE END</h1>
 					<p>
