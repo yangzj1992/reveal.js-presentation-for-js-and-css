@@ -575,6 +575,23 @@ function Person(name, age, job){
       alert(person1.friends === person2.friends);  //false
       alert(person1.sayName === person2.sayName);  //true
 						</code></pre>
+						<p class="fragment">稳妥构造函数模式</p>
+						<pre class="fragment"><code data-trim contenteditable>
+function Person(name,age,job){
+  //创建要返回的对象
+  var o=new Object();
+  //可以在这里定义私有变量和函数
+  
+  //添加方法
+  o.sayName=function(){
+    alert(name);
+  }
+  //返回对象
+  return o;
+}
+var friend=Person("Nicholas",29,"Software Engineer");
+friend.sayName(); 
+						</code></pre>
 					</section>
 					<section>
 						<h2>继承</h2>
